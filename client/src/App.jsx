@@ -21,15 +21,20 @@ import AdminFacilities from './pages/admin/AdminFacilities'
 import AdminPlans from './pages/admin/AdminPlans'
 import AdminMemberships from './pages/admin/AdminMemberships'
 import AdminEnquiries from './pages/admin/AdminEnquiries'
+import ScrollToTop from './components/ScrollToTop'
+import SoundFloatingButton from './components/SoundFloatingButton'
 
 export default function App() {
   const location = useLocation()
-  // Hide Navbar/Footer on admin routes — AdminLayout has its own sidebar nav
+  // Hide Navbar/Footer on admin routes and auth pages
   const isAdminRoute = location.pathname.startsWith('/admin')
+  const isAuthRoute = location.pathname === '/login' || location.pathname === '/register'
+  const isHomePage = location.pathname === '/'
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-950">
-      {!isAdminRoute && <Navbar />}
+    <div className="min-h-screen flex flex-col bg-[#050508]">
+      <ScrollToTop />
+      {!isAdminRoute && !isAuthRoute && <Navbar />}
       <main className="flex-1">
         <Routes>
           {/* Public */}
@@ -44,6 +49,7 @@ export default function App() {
           {/* Protected (user) */}
           <Route element={<ProtectedRoute />}>
             <Route path="/my-membership" element={<MyMembership />} />
+            <Route path="/dashboard" element={<MyMembership />} />
           </Route>
 
           {/* Admin */}
@@ -62,7 +68,8 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {!isAdminRoute && <Footer />}
+      {isHomePage && <Footer />}
+      {!isAdminRoute && <SoundFloatingButton />}
     </div>
   )
 }

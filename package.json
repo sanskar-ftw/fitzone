@@ -1,0 +1,15 @@
+{
+  "name": "fitzone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FitZone Fitness and Gym Management Platform",
+  "scripts": {
+    "dev": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "server": "npm run start --prefix server",
+    "seed": "node server/utils/seedData.js",
+    "build": "npm run build --prefix client",
+    "start": "node server/server.js"
+  }
+}

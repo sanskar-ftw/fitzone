@@ -8,7 +8,8 @@ const Trainer = require('../models/Trainer');
  */
 const getTrainers = async (req, res, next) => {
   try {
-    const trainers = await Trainer.find({ isActive: true });
+    const filter = req.query.all === 'true' ? {} : { isActive: { $ne: false } };
+    const trainers = await Trainer.find(filter);
     res.status(200).json({ success: true, data: trainers });
   } catch (error) {
     next(error);

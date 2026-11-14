@@ -7,6 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
+        gray: {
+          50: '#fafafa',
+          100: '#f4f4f5',
+          200: '#e4e4e7',
+          300: '#d4d4d8',
+          400: '#a1a1aa',
+          500: '#71717a',
+          600: '#52525b',
+          700: '#27272a',
+          800: '#18181b', // pure neutral charcoal - zero blue
+          900: '#0e0e12', // pure deep obsidian - zero blue
+          950: '#050508', // pitch dark black - zero blue
+        },
         primary: {
           50: '#fff7ed',
           100: '#ffedd5',
@@ -21,7 +34,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
+        syne: ['Syne', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
       }
     },
   },

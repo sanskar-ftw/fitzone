@@ -8,7 +8,8 @@ const Facility = require('../models/Facility');
  */
 const getFacilities = async (req, res, next) => {
   try {
-    const facilities = await Facility.find({ isActive: true });
+    const filter = req.query.all === 'true' ? {} : { isActive: { $ne: false } };
+    const facilities = await Facility.find(filter);
     res.status(200).json({ success: true, data: facilities });
   } catch (error) {
     next(error);

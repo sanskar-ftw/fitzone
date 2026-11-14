@@ -1,5 +1,5 @@
 /**
- * Seed script — populates the database with initial demo data.
+ * Seed script — populates the database with initial authentic Indian fitness demo data.
  * Run with: npm run seed
  *
  * WARNING: This will CLEAR all existing data before seeding.
@@ -40,85 +40,102 @@ const seed = async () => {
 
     await User.insertMany([
       {
-        name: 'Admin User',
+        name: 'Admin Console',
         email: 'admin@fitzone.com',
         password: await bcrypt.hash('admin123', adminSalt),
         role: 'admin',
+        phone: '+91 98860 12345',
       },
       {
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Arjun Verma',
+        email: 'arjun@fitzone.in',
         password: await bcrypt.hash('user123', userSalt),
         role: 'user',
+        phone: '+91 98765 43210',
+        fitnessGoal: 'Hypertrophy & Strength',
+        currentWeight: 78,
+        targetWeight: 75,
+        height: 180,
+      },
+      {
+        name: 'Sneha Patel',
+        email: 'sneha@fitzone.in',
+        password: await bcrypt.hash('user123', userSalt),
+        role: 'user',
+        phone: '+91 98234 56789',
+        fitnessGoal: 'Endurance & Flexibility',
+        currentWeight: 58,
+        targetWeight: 55,
+        height: 165,
       },
     ]);
-    console.log('Users seeded.');
+    console.log('Users seeded with authentic Indian accounts.');
 
     // ── Trainers ─────────────────────────────────────────────────────────
     await Trainer.insertMany([
       {
-        name: 'Marcus Rivera',
-        specialization: 'Weight Training',
-        experience: 8,
-        bio: 'Marcus is a certified strength and conditioning specialist with 8 years of experience transforming bodies. He specialises in powerlifting technique, muscle hypertrophy programmes, and injury-prevention strategies for lifters of all levels.',
-        image: 'https://via.placeholder.com/300x300?text=Marcus+Rivera',
+        name: 'Vikramaditya Singhania',
+        specialization: 'Weight Training & Powerlifting',
+        experience: 9,
+        bio: 'National-level powerlifter and CSCS-certified strength coach. Specialises in Olympic barbell mechanics, compound strength progression, and high-performance hypertrophy for competitive and lifestyle athletes.',
+        image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&h=750&fit=crop',
         isActive: true,
       },
       {
         name: 'Priya Sharma',
-        specialization: 'Yoga',
+        specialization: 'Ashtanga Yoga & Mobility',
         experience: 10,
-        bio: 'Priya is a 500-hour RYT certified yoga instructor with a decade of teaching experience. She blends Hatha and Vinyasa styles to help clients build flexibility, mental clarity, and stress resilience. She also holds a certification in prenatal yoga.',
-        image: 'https://via.placeholder.com/300x300?text=Priya+Sharma',
+        bio: '500-hour RYT certified master yogi trained in Rishikesh. Blends intense Vinyasa flow, deep spinal mobility, and pranayama breathwork to build mental composure and injury-free athletic longevity.',
+        image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=750&fit=crop',
         isActive: true,
       },
       {
-        name: 'Jake Thompson',
-        specialization: 'Cardio',
-        experience: 5,
-        bio: 'Jake is a NASM-certified personal trainer who specialises in cardiovascular fitness and endurance training. With a background in competitive running, he designs personalised cardio programmes that improve stamina and accelerate fat loss.',
-        image: 'https://via.placeholder.com/300x300?text=Jake+Thompson',
+        name: 'Rohan Deshmukh',
+        specialization: 'Cardio & Conditioning',
+        experience: 7,
+        bio: 'Former state sprinter and ACE-certified performance conditioning coach. Designs high-tempo functional endurance protocols, sled pushing, and sprint intervals that build relentless cardiovascular capacity.',
+        image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&h=750&fit=crop',
         isActive: true,
       },
       {
-        name: 'Sofia Mendes',
-        specialization: 'CrossFit',
+        name: 'Ananya Iyer',
+        specialization: 'CrossFit & Functional Training',
         experience: 6,
-        bio: 'Sofia is a Level-2 CrossFit trainer and former collegiate athlete. She delivers high-intensity functional training sessions that combine Olympic lifting, gymnastics, and metabolic conditioning to push clients beyond their limits safely.',
-        image: 'https://via.placeholder.com/300x300?text=Sofia+Mendes',
+        bio: 'CrossFit Level-2 certified coach and competitive regional athlete. Leads high-intensity barbell cycling, gymnastics muscle-up progression, and functional metabolic conditioning.',
+        image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&h=750&fit=crop',
         isActive: true,
       },
     ]);
-    console.log('Trainers seeded.');
+    console.log('Trainers seeded with Indian coaches.');
 
     // ── Facilities ───────────────────────────────────────────────────────
     await Facility.insertMany([
       {
-        name: 'Gym Floor',
+        name: 'Olympic Strength Floor',
         description:
-          'Our 5,000 sq ft main gym floor is equipped with free weights, barbells, squat racks, cable machines, and a full range of resistance machines — everything you need to build strength and muscle.',
-        image: 'https://via.placeholder.com/600x400?text=Gym+Floor',
+          '15,000 sq. ft. precision-engineered weight room equipped with IPF-certified Eleiko barbells, calibrated steel plates, Hammer Strength plate-loaded iso-lateral machines, and 8 dedicated deadlift platforms with shock-absorbent drop zones.',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=500&fit=crop',
         isActive: true,
       },
       {
-        name: 'Swimming Pool',
+        name: 'Temperature-Controlled 25m Lap Pool',
         description:
-          'An Olympic-length heated indoor pool open year-round. Ideal for lap swimming, aqua aerobics, and active recovery. Lane reservations available for all Pro and Elite members.',
-        image: 'https://via.placeholder.com/600x400?text=Swimming+Pool',
+          'Semi-Olympic heated indoor pool maintained at optimal 26°C with UV multi-stage filtration. Designed for low-impact active recovery, cardiovascular sprint intervals, and weekend swim clinics.',
+        image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=500&fit=crop',
         isActive: true,
       },
       {
-        name: 'Yoga Studio',
+        name: 'Zen Mind & Movement Sanctuary',
         description:
-          'A serene, mirrored studio with hardwood floors, premium yoga mats, bolsters, and blocks. Hosts daily group yoga and meditation classes led by our certified instructors.',
-        image: 'https://via.placeholder.com/600x400?text=Yoga+Studio',
+          'Acoustically insulated teak-wood studio equipped with Manduka PRO mats, Iyengar ropes, and Himalayan salt ambient lighting. Hosts daily Ashtanga, Yin Yoga, and guided breathwork sessions.',
+        image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=500&fit=crop',
         isActive: true,
       },
       {
-        name: 'Cardio Zone',
+        name: 'Cardio & High-Altitude Sprint Suite',
         description:
-          'Our dedicated cardio zone features the latest treadmills, ellipticals, rowing machines, stationary bikes, and stair climbers, all with integrated entertainment screens to keep you motivated.',
-        image: 'https://via.placeholder.com/600x400?text=Cardio+Zone',
+          'Dedicated endurance floor featuring Woodway curved motorless treadmills, Concept2 RowErgs and SkiErgs, Wattbikes, and StairMasters with integrated performance biometric telemetry.',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop',
         isActive: true,
       },
     ]);
@@ -127,44 +144,47 @@ const seed = async () => {
     // ── Plans ────────────────────────────────────────────────────────────
     await Plan.insertMany([
       {
-        name: 'Basic',
-        price: 29,
+        name: 'Essential Floor',
+        price: 2499,
         durationInDays: 30,
         features: [
-          'Access to gym floor',
-          'Locker room access',
-          '1 group class/week',
+          'Full access to 15,000 sq ft Olympic floor',
+          'Keyless biometric digital lockers',
+          'Rain showers & luxury towel service',
+          '1 complimentary coach fitness assessment',
         ],
         isPopular: false,
       },
       {
-        name: 'Pro',
-        price: 59,
+        name: 'Pro Athlete',
+        price: 4499,
         durationInDays: 30,
         features: [
-          'All Basic features',
-          'Unlimited group classes',
-          'Pool access',
-          '2 PT sessions/month',
+          'All Essential Floor privileges',
+          'Unlimited recovery pool & cedar sauna access',
+          'Access to all weekend conditioning workshops',
+          '2 monthly 1-on-1 personal coaching sessions',
+          'Quarterly body composition & InBody DEXA analysis',
         ],
         isPopular: true,
       },
       {
-        name: 'Elite',
-        price: 99,
+        name: 'Elite Obsidian',
+        price: 7999,
         durationInDays: 30,
         features: [
-          'All Pro features',
-          'Personal trainer 3x/week',
-          'Nutrition consultation',
-          'Spa access',
+          'All Pro Athlete privileges',
+          'Dedicated personal coach (8 private sessions/month)',
+          'Personalized macro & sports nutrition roadmap',
+          'Complimentary cryotherapy & recovery lounge access',
+          '24/7 VIP keycard access & private member parking',
         ],
         isPopular: false,
       },
     ]);
-    console.log('Plans seeded.');
+    console.log('Plans seeded with realistic INR pricing.');
 
-    console.log('\n✅ Seed data imported successfully');
+    console.log('\n✅ Database successfully seeded with authentic Indian fitness data!');
     process.exit(0);
   } catch (error) {
     console.error('Seeding failed:', error.message);

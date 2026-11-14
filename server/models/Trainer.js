@@ -23,7 +23,7 @@ const trainerSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: 'https://via.placeholder.com/300x300?text=Trainer',
+      default: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&h=750&fit=crop',
     },
     isActive: {
       type: Boolean,

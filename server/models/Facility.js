@@ -15,7 +15,7 @@ const facilitySchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: 'https://via.placeholder.com/600x400?text=Facility',
+      default: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=500&fit=crop',
     },
     isActive: {
       type: Boolean,
